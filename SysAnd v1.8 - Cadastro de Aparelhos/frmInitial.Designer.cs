@@ -83,6 +83,7 @@
             this.frmRegistro1.Name = "frmRegistro1";
             this.frmRegistro1.Size = new System.Drawing.Size(954, 662);
             this.frmRegistro1.TabIndex = 1;
+            this.frmRegistro1.Load += new System.EventHandler(this.frmRegistro1_Load);
             // 
             // frmInitial
             // 

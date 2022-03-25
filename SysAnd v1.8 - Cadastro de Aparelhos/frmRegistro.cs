@@ -20,6 +20,8 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
         SqlConnection cn = new SqlConnection(@"Data Source=brm3907\SQLEXPRESS;initial Catalog=FixManutencaoDB;integrated security=SSPI");
         SqlCommand cmd = new SqlCommand();
         SqlDataReader dt;
+        DataTable db = new DataTable();
+        string arquivoCSV = @"C:\dev\TabelaFIX.csv";
 
         private void loadingDataBase()
         {
@@ -51,14 +53,24 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
             
 
         }
+
+        private void teste()
+        {
+            
+        }
         private void frmRegistro_Load(object sender, EventArgs e)
         {
+            cbDefeito.Sorted = true;
+            cbColor.Sorted = true;
+            cbStatus.Sorted = true;
+            cbModelo.Sorted = true;
             cn.Open();
             loadingDataBase();
             DateTime data = DateTime.Now;
             txtEntrada.Text = data.ToString();
-            txtSaida.Text = data.ToString();
+            txtSaida.Text = "01012000 0000";
             cn.Close();
+            limpar();
 
         }
 
@@ -80,10 +92,12 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
             if (cbSaida.Checked)
             {
                 txtSaida.Enabled = true;
+                txtSaida.Text = "";
             }
             else
             {
                 txtSaida.Enabled= false;
+                txtSaida.Text = "01012000 0000";
             }
         }
 
@@ -205,10 +219,93 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
 
         }
 
-        private void button1_Click_1(object sender, EventArgs e)
+        
+
+        private void cbDefeito_MouseClick(object sender, MouseEventArgs e)
         {
-           
+
+        }
+
+        private void limpar()
+        {
+            
+            txtID.Text = "00";
+            txtID.Enabled = false;
+            txtEntrada.Text = DateTime.Now.ToString();
+            txtEntrada.Enabled = false;
+            txtOS.Text = "000000";
+            txtOS.Enabled = false;
+            txtSaida.Text = "01012000 0000";
+            txtSaida.Enabled = false;
+
+            txtPatrimonio.Text = "";
+            txtPatrimonio.Enabled = false;
+            cbModelo.Text = "";
+            cbModelo.Enabled = false;
+            cbColor.Text = "";
+            cbColor.Enabled = false;
+            cbStatus.Text = "";
+            cbStatus.Enabled = false;
+
+            cbGarantia.SetItemChecked(0, false);
+            cbGarantia.SetItemChecked(1, false);
+            cbGarantia.Enabled = false;
+            cbLaudo.SetItemChecked(0, false);
+            cbLaudo.SetItemChecked(1, false);
+            cbLaudo.Enabled = cbGarantia.Enabled = false; ;
+            cbDefeito.Enabled = false ;
+            txtReparo.Text = "";
+            txtReparo.Enabled = false;
+            txtObs.Text = "";
+            txtObs.Enabled = false;
+
+            cbEntrada.Enabled = false;
+            cbSaida.Enabled = false;
+
+        }
+
+        private void btnNovo_Click(object sender, EventArgs e)
+        {
+            txtID.Text = "00";
+            txtID.Enabled = false;
+            txtEntrada.Text = DateTime.Now.ToString();
+            txtEntrada.Enabled = false;
+            txtOS.Text = "000000";
+            txtOS.Enabled = true;
+            txtSaida.Text = "01012000 0000";
+            txtSaida.Enabled = false;
+
+            txtPatrimonio.Text = "";
+            txtPatrimonio.Enabled = true;
+            cbModelo.Text = "";
+            cbModelo.Enabled = true;
+            cbColor.Text = "";
+            cbColor.Enabled = true;
+            cbStatus.Text = "";
+            cbStatus.Enabled = true;
+
+            cbGarantia.SetItemChecked(0, false);
+            cbGarantia.SetItemChecked(1, true);
+            cbGarantia.Enabled = true;
+            cbLaudo.SetItemChecked(0, false);
+            cbLaudo.SetItemChecked(1, true);
+            cbLaudo.Enabled = true;
+            for (int i = 0; i < cbDefeito.Items.Count; i++)
+            {
+                cbDefeito.SetItemChecked(i, false);
+            }
+            cbDefeito.Enabled = true;
+            txtReparo.Text = "";
+            txtReparo.Enabled = true;
+            txtObs.Text = "";
+            txtObs.Enabled = true;
+            
+            cbSaida.Enabled = true;
+            cbEntrada.Enabled = true;
+
+
+            }
         }
     }
-}
+
 

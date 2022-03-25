@@ -64,7 +64,7 @@
             this.cbDefeito = new System.Windows.Forms.CheckedListBox();
             this.txtObs = new System.Windows.Forms.TextBox();
             this.txtReparo = new System.Windows.Forms.TextBox();
-            this.button1 = new System.Windows.Forms.Button();
+            this.btnNovo = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pessoasBindingSource1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.newDataBaseTestDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pessoasBindingSource)).BeginInit();
@@ -103,6 +103,7 @@
             this.dgvTabela.Location = new System.Drawing.Point(3, 226);
             this.dgvTabela.Name = "dgvTabela";
             this.dgvTabela.ReadOnly = true;
+            this.dgvTabela.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTabela.Size = new System.Drawing.Size(417, 421);
             this.dgvTabela.TabIndex = 0;
             // 
@@ -314,7 +315,8 @@
             "Moto E7 Plus (XT2081)",
             "Moto G5S Plus (XT1802)",
             "Moto G6 Play (XT1922)",
-            "Moto G8 Play (XT2015)"});
+            "Moto G8 Play (XT2015)",
+            "Galaxy A02 (A022)"});
             this.cbModelo.Location = new System.Drawing.Point(279, 86);
             this.cbModelo.Name = "cbModelo";
             this.cbModelo.Size = new System.Drawing.Size(188, 21);
@@ -364,6 +366,7 @@
             // 
             this.cbGarantia.BackColor = System.Drawing.SystemColors.Control;
             this.cbGarantia.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbGarantia.CheckOnClick = true;
             this.cbGarantia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbGarantia.FormattingEnabled = true;
             this.cbGarantia.Items.AddRange(new object[] {
@@ -390,7 +393,7 @@
             // 
             this.btnSalvar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnSalvar.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.btnSalvar.Location = new System.Drawing.Point(432, 600);
+            this.btnSalvar.Location = new System.Drawing.Point(520, 600);
             this.btnSalvar.Name = "btnSalvar";
             this.btnSalvar.Size = new System.Drawing.Size(75, 28);
             this.btnSalvar.TabIndex = 37;
@@ -413,6 +416,7 @@
             // 
             this.cbLaudo.BackColor = System.Drawing.SystemColors.Control;
             this.cbLaudo.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbLaudo.CheckOnClick = true;
             this.cbLaudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbLaudo.FormattingEnabled = true;
             this.cbLaudo.Items.AddRange(new object[] {
@@ -438,44 +442,35 @@
             // 
             this.cbDefeito.BackColor = System.Drawing.SystemColors.Control;
             this.cbDefeito.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.cbDefeito.CheckOnClick = true;
             this.cbDefeito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbDefeito.FormattingEnabled = true;
             this.cbDefeito.Items.AddRange(new object[] {
-            " Bateria",
-            " Botão Home",
-            " Botão Silêncioso",
-            " Carcaça/Chassi Avariada",
-            " Conector de Carga/Não Reconhece USB/Não carrega",
-            " Display Manchado",
-            " Display Quebrado",
-            " Display/Touch",
-            " Lente da Câmera Traseira Avariada",
-            " Não Liga",
-            " Sensor Frontal",
-            " Slot SIM Card",
-            " Tampa Traseira Avariada",
-            "Alto Falante Auricular",
-            "Audio Codec",
+            "Não Liga ",
             "Bateria",
             "Botão Home",
-            "Botão Power",
+            "Botão Silêncioso",
             "Carcaça/Chassi Avariada",
             "Conector de Carga/Não Reconhece USB/Não carrega",
             "Display Manchado",
             "Display Quebrado",
-            "Display Riscado",
             "Display/Touch",
             "Lente da Câmera Traseira Avariada",
-            "Não Liga",
+            "Sensor Frontal",
+            "Slot SIM Card",
+            "Tampa Traseira Avariada",
+            "Alto Falante Auricular",
+            "Audio Codec",
+            "Botão Power",
+            "Display Riscado",
             "Não sobe dados",
             "Pixel Morto",
-            "Reboot",
-            "Slot SIM Card",
-            "Tampa Traseira Avariada"});
+            "Reboot"});
             this.cbDefeito.Location = new System.Drawing.Point(6, 25);
             this.cbDefeito.Name = "cbDefeito";
             this.cbDefeito.Size = new System.Drawing.Size(477, 192);
             this.cbDefeito.TabIndex = 35;
+            this.cbDefeito.MouseClick += new System.Windows.Forms.MouseEventHandler(this.cbDefeito_MouseClick);
             // 
             // txtObs
             // 
@@ -497,23 +492,23 @@
             this.txtReparo.Size = new System.Drawing.Size(228, 149);
             this.txtReparo.TabIndex = 39;
             // 
-            // button1
+            // btnNovo
             // 
-            this.button1.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.button1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.button1.Location = new System.Drawing.Point(576, 600);
-            this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 28);
-            this.button1.TabIndex = 40;
-            this.button1.Text = "teste";
-            this.button1.UseVisualStyleBackColor = true;
-            this.button1.Click += new System.EventHandler(this.button1_Click_1);
+            this.btnNovo.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnNovo.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.btnNovo.Location = new System.Drawing.Point(432, 600);
+            this.btnNovo.Name = "btnNovo";
+            this.btnNovo.Size = new System.Drawing.Size(75, 28);
+            this.btnNovo.TabIndex = 40;
+            this.btnNovo.Text = "Novo";
+            this.btnNovo.UseVisualStyleBackColor = true;
+            this.btnNovo.Click += new System.EventHandler(this.btnNovo_Click);
             // 
             // frmRegistro
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.Controls.Add(this.button1);
+            this.Controls.Add(this.btnNovo);
             this.Controls.Add(this.txtReparo);
             this.Controls.Add(this.txtObs);
             this.Controls.Add(this.groupBox3);
@@ -592,6 +587,6 @@
         private System.Windows.Forms.CheckedListBox cbDefeito;
         private System.Windows.Forms.TextBox txtObs;
         private System.Windows.Forms.TextBox txtReparo;
-        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button btnNovo;
     }
 }

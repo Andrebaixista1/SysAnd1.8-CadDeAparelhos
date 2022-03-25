@@ -21,5 +21,10 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
         {
             
         }
+
+        private void frmRegistro1_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
