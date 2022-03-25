@@ -1,0 +1,13 @@
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\bin\Debug\SysAnd v1.8 - Cadastro de Aparelhos.exe.config
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\bin\Debug\SysAnd v1.8 - Cadastro de Aparelhos.exe
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\bin\Debug\SysAnd v1.8 - Cadastro de Aparelhos.pdb
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\obj\Debug\SysAnd v1.8 - Cadastro de Aparelhos.csproj.AssemblyReference.cache
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\obj\Debug\SysAnd v1.8 - Cadastro de Aparelhos.csproj.SuggestedBindingRedirects.cache
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\obj\Debug\SysAnd_v1._8___Cadastro_de_Aparelhos.frmInitial.resources
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\obj\Debug\SysAnd_v1._8___Cadastro_de_Aparelhos.Properties.Resources.resources
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\obj\Debug\SysAnd v1.8 - Cadastro de Aparelhos.csproj.GenerateResource.cache
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\obj\Debug\SysAnd v1.8 - Cadastro de Aparelhos.csproj.CoreCompileInputs.cache
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\obj\Debug\SysAnd v1.8 - Cadastro de Aparelhos.exe
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\obj\Debug\SysAnd v1.8 - Cadastro de Aparelhos.pdb
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\obj\Debug\SysAnd_v1._8___Cadastro_de_Aparelhos.frmRegistro.resources
+C:\Users\Administrador\Documents\SistemaFixMobile v1.3\SysAnd v1.8 - Cadastro de Aparelhos\SysAnd v1.8 - Cadastro de Aparelhos\bin\Debug\NewDataBaseTest.mdb
