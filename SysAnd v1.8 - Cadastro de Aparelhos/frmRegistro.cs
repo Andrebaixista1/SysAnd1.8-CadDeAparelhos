@@ -64,6 +64,7 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
             cbColor.Sorted = true;
             cbStatus.Sorted = true;
             cbModelo.Sorted = true;
+            defeitos();
             cn.Open();
             loadingDataBase();
             DateTime data = DateTime.Now;
@@ -116,7 +117,34 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
             
         }
         
+        private void defeitos()
+        {
+            cbDefeito.Items.Add("Não Liga");
+            cbDefeito.Items.Add("Bateria");
+            cbDefeito.Items.Add("Botão Home");
+            cbDefeito.Items.Add("Botão Silêncioso");
+            cbDefeito.Items.Add("Não sobe dados");
+            cbDefeito.Items.Add("Display Riscado");
+            cbDefeito.Items.Add("Reboot");
+            cbDefeito.Items.Add("Botão Power");
+            cbDefeito.Items.Add("Audio Codec");
+            cbDefeito.Items.Add("Alto Falante Auricular");
+            cbDefeito.Items.Add("Tampa Traseira Avariada");
+            cbDefeito.Items.Add("Pixel Morto");
+            cbDefeito.Items.Add("Slot SIM Card");
+            cbDefeito.Items.Add("Sensor Frontal");
+            cbDefeito.Items.Add("Lente da Câmera Traseira Avariada");
+            cbDefeito.Items.Add("Display / Touch");
+            cbDefeito.Items.Add("Display Quebrado");
+            cbDefeito.Items.Add("Display Manchado");
+            cbDefeito.Items.Add("Conector de Carga/ Não Reconhece USB/ Não carrega");
+            cbDefeito.Items.Add("Carcaça / Chassi Avariada");
+            cbDefeito.Items.Add("PT - Perda Total");
 
+                 
+                        
+                       
+        }
         
         private void button1_Click(object sender, EventArgs e)
         {
@@ -164,24 +192,44 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
 
                 foreach (object d in cbDefeito.CheckedItems)
                 {
-                    defeito += d.ToString() + Environment.NewLine + ",";
+                    if (cbDefeito.CheckedItems.Count > 1)
+                    {
+                        defeito += d.ToString() + Environment.NewLine + ", ";
+                    }
+                    else
+                    {
+                        defeito += d.ToString() + Environment.NewLine;
+                    }
                    
                 }
 
-                foreach (object l in cbLaudo.CheckedItems)
-                {
-                    laudo += l.ToString() + Environment.NewLine + ",";
-                }
+                
 
-                foreach (object g in cbGarantia.CheckedItems)
+                if (rbSimGarantia.Checked)
                 {
-                    garantia += g.ToString() + Environment.NewLine + ",";
+                    laudo = "Sim";
+                }
+                else
+                {
+                    laudo = "Não";
                 }
 
                 
-                Console.WriteLine(defeito, "Deu certo !");
+                if (rbSImLaudo.Checked)
+                {
+                    garantia = "Sim";
+                }
+                else
+                {
+                    garantia = "Não";
+                }
+                
+                
+
+                
+                /*Console.WriteLine(defeito, "Deu certo !");
                 Console.WriteLine(laudo, "Deu certo !");
-                Console.WriteLine(garantia, "Deu certo !");
+                Console.WriteLine(garantia, "Deu certo !");*/
 
 
 
@@ -247,12 +295,15 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
             cbStatus.Text = "";
             cbStatus.Enabled = false;
 
-            cbGarantia.SetItemChecked(0, false);
-            cbGarantia.SetItemChecked(1, false);
-            cbGarantia.Enabled = false;
-            cbLaudo.SetItemChecked(0, false);
-            cbLaudo.SetItemChecked(1, false);
-            cbLaudo.Enabled = cbGarantia.Enabled = false; ;
+            rbNãoGarantia.Enabled = false;
+            rbSimGarantia.Enabled = false;
+            rbSImLaudo.Enabled = false;
+            rbNãoLaudo.Enabled = false;
+
+
+            rbNãoGarantia.Select();
+            rbNãoLaudo.Select();
+            
             cbDefeito.Enabled = false ;
             txtReparo.Text = "";
             txtReparo.Enabled = false;
@@ -284,12 +335,14 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
             cbStatus.Text = "";
             cbStatus.Enabled = true;
 
-            cbGarantia.SetItemChecked(0, false);
-            cbGarantia.SetItemChecked(1, true);
-            cbGarantia.Enabled = true;
-            cbLaudo.SetItemChecked(0, false);
-            cbLaudo.SetItemChecked(1, true);
-            cbLaudo.Enabled = true;
+            rbSimGarantia.Enabled = true;
+            rbNãoGarantia.Enabled = true;
+            rbNãoGarantia.Select();
+
+            rbSImLaudo.Enabled = true;
+            rbNãoLaudo.Enabled = true;
+            rbNãoLaudo.Select();
+
             for (int i = 0; i < cbDefeito.Items.Count; i++)
             {
                 cbDefeito.SetItemChecked(i, false);
@@ -305,7 +358,57 @@ namespace SysAnd_v1._8___Cadastro_de_Aparelhos
 
 
             }
+
+        private void dgvTabela_CellContentClick(object sender, DataGridViewCellEventArgs e)
+        {
+
         }
+        private void chargeData()
+        {
+            txtID.Text = dgvTabela.SelectedRows[0].Cells[0].Value.ToString();
+            txtEntrada.Text = dgvTabela.SelectedRows[0].Cells[1].Value.ToString();
+            txtOS.Text = dgvTabela.SelectedRows[0].Cells[2].Value.ToString();
+            txtSaida.Text = dgvTabela.SelectedRows[0].Cells[10].Value.ToString();
+            txtPatrimonio.Text = dgvTabela.SelectedRows[0].Cells[3].Value.ToString();
+            cbModelo.Text = dgvTabela.SelectedRows[0].Cells[4].Value.ToString();
+            cbColor.Text = dgvTabela.SelectedRows[0].Cells[5].Value.ToString();
+            cbStatus.Text = dgvTabela.SelectedRows[0].Cells[8].Value.ToString();
+            
+            string garantia = dgvTabela.SelectedRows[0].Cells[12].Value.ToString();
+            if (garantia == "Sim")
+            {
+                rbSimGarantia.Select();
+            }
+            else
+            {
+                rbNãoGarantia.Select();
+            }
+
+            string laudo = dgvTabela.SelectedRows[0].Cells[11].Value.ToString();
+            if (laudo == "Sim")
+            {
+                rbSImLaudo.Select();
+            }
+            else
+            {
+                rbNãoLaudo.Select();
+            }
+
+            string defeito = dgvTabela.SelectedRows[0].Cells[6].Value.ToString();
+            
+          
+
+            
+
+
+            txtReparo.Text = dgvTabela.SelectedRows[0].Cells[7].Value.ToString();
+            txtObs.Text = dgvTabela.SelectedRows[0].Cells[9].Value.ToString();
+        }
+        private void dgvTabela_MouseDoubleClick(object sender, MouseEventArgs e)
+        {
+            chargeData();
+        }
+    }
     }
 
 

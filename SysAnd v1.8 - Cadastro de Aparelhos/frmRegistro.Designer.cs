@@ -55,11 +55,13 @@
             this.cbModelo = new System.Windows.Forms.ComboBox();
             this.cbColor = new System.Windows.Forms.ComboBox();
             this.cbStatus = new System.Windows.Forms.ComboBox();
-            this.cbGarantia = new System.Windows.Forms.CheckedListBox();
-            this.groupBox1 = new System.Windows.Forms.GroupBox();
+            this.gbGarantia = new System.Windows.Forms.GroupBox();
+            this.rbNãoGarantia = new System.Windows.Forms.RadioButton();
+            this.rbSimGarantia = new System.Windows.Forms.RadioButton();
             this.btnSalvar = new System.Windows.Forms.Button();
             this.groupBox2 = new System.Windows.Forms.GroupBox();
-            this.cbLaudo = new System.Windows.Forms.CheckedListBox();
+            this.rbNãoLaudo = new System.Windows.Forms.RadioButton();
+            this.rbSImLaudo = new System.Windows.Forms.RadioButton();
             this.groupBox3 = new System.Windows.Forms.GroupBox();
             this.cbDefeito = new System.Windows.Forms.CheckedListBox();
             this.txtObs = new System.Windows.Forms.TextBox();
@@ -71,7 +73,7 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabela)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fixManutencaoDBDataSet)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).BeginInit();
-            this.groupBox1.SuspendLayout();
+            this.gbGarantia.SuspendLayout();
             this.groupBox2.SuspendLayout();
             this.groupBox3.SuspendLayout();
             this.SuspendLayout();
@@ -106,6 +108,8 @@
             this.dgvTabela.SelectionMode = System.Windows.Forms.DataGridViewSelectionMode.FullRowSelect;
             this.dgvTabela.Size = new System.Drawing.Size(417, 421);
             this.dgvTabela.TabIndex = 0;
+            this.dgvTabela.CellContentClick += new System.Windows.Forms.DataGridViewCellEventHandler(this.dgvTabela_CellContentClick);
+            this.dgvTabela.MouseDoubleClick += new System.Windows.Forms.MouseEventHandler(this.dgvTabela_MouseDoubleClick);
             // 
             // fixManutencaoDBDataSet
             // 
@@ -362,32 +366,41 @@
             this.cbStatus.TabIndex = 34;
             this.cbStatus.Tag = "Modelo";
             // 
-            // cbGarantia
+            // gbGarantia
             // 
-            this.cbGarantia.BackColor = System.Drawing.SystemColors.Control;
-            this.cbGarantia.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbGarantia.CheckOnClick = true;
-            this.cbGarantia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.cbGarantia.FormattingEnabled = true;
-            this.cbGarantia.Items.AddRange(new object[] {
-            "Sim",
-            "Não"});
-            this.cbGarantia.Location = new System.Drawing.Point(24, 32);
-            this.cbGarantia.Name = "cbGarantia";
-            this.cbGarantia.Size = new System.Drawing.Size(64, 32);
-            this.cbGarantia.TabIndex = 35;
-            this.cbGarantia.SelectedIndexChanged += new System.EventHandler(this.checkedListBox1_SelectedIndexChanged);
+            this.gbGarantia.Controls.Add(this.rbNãoGarantia);
+            this.gbGarantia.Controls.Add(this.rbSimGarantia);
+            this.gbGarantia.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
+            this.gbGarantia.Location = new System.Drawing.Point(27, 127);
+            this.gbGarantia.Name = "gbGarantia";
+            this.gbGarantia.Size = new System.Drawing.Size(109, 81);
+            this.gbGarantia.TabIndex = 36;
+            this.gbGarantia.TabStop = false;
+            this.gbGarantia.Text = "Garantia";
             // 
-            // groupBox1
+            // rbNãoGarantia
             // 
-            this.groupBox1.Controls.Add(this.cbGarantia);
-            this.groupBox1.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
-            this.groupBox1.Location = new System.Drawing.Point(27, 127);
-            this.groupBox1.Name = "groupBox1";
-            this.groupBox1.Size = new System.Drawing.Size(109, 81);
-            this.groupBox1.TabIndex = 36;
-            this.groupBox1.TabStop = false;
-            this.groupBox1.Text = "Garantia";
+            this.rbNãoGarantia.AutoSize = true;
+            this.rbNãoGarantia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rbNãoGarantia.Location = new System.Drawing.Point(32, 50);
+            this.rbNãoGarantia.Name = "rbNãoGarantia";
+            this.rbNãoGarantia.Size = new System.Drawing.Size(48, 19);
+            this.rbNãoGarantia.TabIndex = 1;
+            this.rbNãoGarantia.TabStop = true;
+            this.rbNãoGarantia.Text = "Não";
+            this.rbNãoGarantia.UseVisualStyleBackColor = true;
+            // 
+            // rbSimGarantia
+            // 
+            this.rbSimGarantia.AutoSize = true;
+            this.rbSimGarantia.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rbSimGarantia.Location = new System.Drawing.Point(32, 29);
+            this.rbSimGarantia.Name = "rbSimGarantia";
+            this.rbSimGarantia.Size = new System.Drawing.Size(47, 19);
+            this.rbSimGarantia.TabIndex = 0;
+            this.rbSimGarantia.TabStop = true;
+            this.rbSimGarantia.Text = "Sim";
+            this.rbSimGarantia.UseVisualStyleBackColor = true;
             // 
             // btnSalvar
             // 
@@ -403,7 +416,8 @@
             // 
             // groupBox2
             // 
-            this.groupBox2.Controls.Add(this.cbLaudo);
+            this.groupBox2.Controls.Add(this.rbNãoLaudo);
+            this.groupBox2.Controls.Add(this.rbSImLaudo);
             this.groupBox2.Font = new System.Drawing.Font("Microsoft Sans Serif", 12F);
             this.groupBox2.Location = new System.Drawing.Point(146, 127);
             this.groupBox2.Name = "groupBox2";
@@ -412,20 +426,29 @@
             this.groupBox2.TabStop = false;
             this.groupBox2.Text = "Laudo";
             // 
-            // cbLaudo
+            // rbNãoLaudo
             // 
-            this.cbLaudo.BackColor = System.Drawing.SystemColors.Control;
-            this.cbLaudo.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.cbLaudo.CheckOnClick = true;
-            this.cbLaudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
-            this.cbLaudo.FormattingEnabled = true;
-            this.cbLaudo.Items.AddRange(new object[] {
-            "Sim",
-            "Não"});
-            this.cbLaudo.Location = new System.Drawing.Point(24, 32);
-            this.cbLaudo.Name = "cbLaudo";
-            this.cbLaudo.Size = new System.Drawing.Size(64, 32);
-            this.cbLaudo.TabIndex = 35;
+            this.rbNãoLaudo.AutoSize = true;
+            this.rbNãoLaudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rbNãoLaudo.Location = new System.Drawing.Point(30, 50);
+            this.rbNãoLaudo.Name = "rbNãoLaudo";
+            this.rbNãoLaudo.Size = new System.Drawing.Size(48, 19);
+            this.rbNãoLaudo.TabIndex = 3;
+            this.rbNãoLaudo.TabStop = true;
+            this.rbNãoLaudo.Text = "Não";
+            this.rbNãoLaudo.UseVisualStyleBackColor = true;
+            // 
+            // rbSImLaudo
+            // 
+            this.rbSImLaudo.AutoSize = true;
+            this.rbSImLaudo.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
+            this.rbSImLaudo.Location = new System.Drawing.Point(30, 29);
+            this.rbSImLaudo.Name = "rbSImLaudo";
+            this.rbSImLaudo.Size = new System.Drawing.Size(47, 19);
+            this.rbSImLaudo.TabIndex = 2;
+            this.rbSImLaudo.TabStop = true;
+            this.rbSImLaudo.Text = "Sim";
+            this.rbSImLaudo.UseVisualStyleBackColor = true;
             // 
             // groupBox3
             // 
@@ -445,27 +468,6 @@
             this.cbDefeito.CheckOnClick = true;
             this.cbDefeito.Font = new System.Drawing.Font("Microsoft Sans Serif", 9F);
             this.cbDefeito.FormattingEnabled = true;
-            this.cbDefeito.Items.AddRange(new object[] {
-            "Não Liga ",
-            "Bateria",
-            "Botão Home",
-            "Botão Silêncioso",
-            "Carcaça/Chassi Avariada",
-            "Conector de Carga/Não Reconhece USB/Não carrega",
-            "Display Manchado",
-            "Display Quebrado",
-            "Display/Touch",
-            "Lente da Câmera Traseira Avariada",
-            "Sensor Frontal",
-            "Slot SIM Card",
-            "Tampa Traseira Avariada",
-            "Alto Falante Auricular",
-            "Audio Codec",
-            "Botão Power",
-            "Display Riscado",
-            "Não sobe dados",
-            "Pixel Morto",
-            "Reboot"});
             this.cbDefeito.Location = new System.Drawing.Point(6, 25);
             this.cbDefeito.Name = "cbDefeito";
             this.cbDefeito.Size = new System.Drawing.Size(477, 192);
@@ -514,7 +516,7 @@
             this.Controls.Add(this.groupBox3);
             this.Controls.Add(this.groupBox2);
             this.Controls.Add(this.btnSalvar);
-            this.Controls.Add(this.groupBox1);
+            this.Controls.Add(this.gbGarantia);
             this.Controls.Add(this.cbStatus);
             this.Controls.Add(this.cbColor);
             this.Controls.Add(this.cbModelo);
@@ -543,8 +545,10 @@
             ((System.ComponentModel.ISupportInitialize)(this.dgvTabela)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fixManutencaoDBDataSet)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.tableBindingSource)).EndInit();
-            this.groupBox1.ResumeLayout(false);
+            this.gbGarantia.ResumeLayout(false);
+            this.gbGarantia.PerformLayout();
             this.groupBox2.ResumeLayout(false);
+            this.groupBox2.PerformLayout();
             this.groupBox3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -578,15 +582,17 @@
         private System.Windows.Forms.ComboBox cbModelo;
         private System.Windows.Forms.ComboBox cbColor;
         private System.Windows.Forms.ComboBox cbStatus;
-        private System.Windows.Forms.CheckedListBox cbGarantia;
-        private System.Windows.Forms.GroupBox groupBox1;
+        private System.Windows.Forms.GroupBox gbGarantia;
         private System.Windows.Forms.Button btnSalvar;
         private System.Windows.Forms.GroupBox groupBox2;
-        private System.Windows.Forms.CheckedListBox cbLaudo;
         private System.Windows.Forms.GroupBox groupBox3;
         private System.Windows.Forms.CheckedListBox cbDefeito;
         private System.Windows.Forms.TextBox txtObs;
         private System.Windows.Forms.TextBox txtReparo;
         private System.Windows.Forms.Button btnNovo;
+        private System.Windows.Forms.RadioButton rbNãoGarantia;
+        private System.Windows.Forms.RadioButton rbSimGarantia;
+        private System.Windows.Forms.RadioButton rbNãoLaudo;
+        private System.Windows.Forms.RadioButton rbSImLaudo;
     }
 }
